@@ -1,0 +1,26 @@
+#!/bin/bash
+
+directory_name=$1
+user_name="edges"
+
+if [ -d $directory_name ]; then
+	echo "$directory_name already exists and will be overwritten now"
+	rm -r $directory_name
+fi
+
+mkdir $directory_name
+touch $directory_name/{main.c,main.h,hello.c,hello.h}
+
+for file in $directory_name/*; do
+	file_name=$(basename $file)  #the basename command gets the name of file
+	echo "this file is named $file_name" > $file
+done
+
+tar -cvf $directory_name.tar $directory_name
+
+new_directory=/home/$user_name
+sudo mkdir -p "$new_directory"
+#su - $user_name 
+
+
+echo " cd $new_directory && pwd && cp /home/yahia/Desktop/adminstration_project/part_1/$directory_name.tar .  && tar -xvf $directory_name.tar   " | sudo -s  #the -s flag enables us to run the shell as the target user so i specified the commands then piped them to the new shell

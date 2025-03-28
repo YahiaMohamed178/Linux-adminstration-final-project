@@ -1,0 +1,20 @@
+m)
+1)It can be done by adding the script to a directory in the environment variable (PATH)
+  command: sudo mv userdef /usr/local/bin/
+  
+2)It can also be done by adding the script directory to PATH
+if the script is located in "/home/yahia/Desktop/adminstration_project/part_1"
+then we will run the export command 
+export PATH=$PATH:/home/yahia/Desktop/adminstration_project/part_1
+
+n) to make the change permanent we will have to edit the bashrc file
+
+     nano ~/.bashrc  
+then we will add the line at the end of the file
+
+	export PATH=$PATH:/home/yahia/Desktop/adminstration_project/part_1
+then save and source the file
+	source ~/.bashrc  
+	
+o) to edit configurations while in terminal, we need to source the bashrc file in the current terminal
+	source ~/.bashrc 

@@ -1,0 +1,12 @@
+g) su edges   and then enter password edges123
+or sudo su edges
+
+h) ls -lR /home/edges/direct_1      #this will show our 4 created files
+
+i)  sudo chown -R edges:ASU /home/edges/direct_1
+
+j)  ls -lR /home/edges/direct_1   #this time edges and ASU are the user and group owners respectively instead of my root user (/yahia)
+
+k) grep -r "file" /home/edges/direct_1  #it appeared in all 4 files
+
+l) rm /home/edges/direct_1/*.c

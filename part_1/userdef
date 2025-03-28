@@ -1,0 +1,42 @@
+#!/bin/bash
+
+username=$1
+userpass=$2
+groupname=$3
+
+#check if all 3 arguments were passed
+if [ $# -ne 3 ]; then
+	echo "Error! Missing argument"
+	exit 1
+fi
+
+#check if user is a sudoer
+if [ $USER != "root" ]; then
+	echo "Error! The user has no sudo permission"
+	exit 1
+fi
+
+echo "User_name: $1"
+echo "User_pass: $2"
+echo "Group_name: $3"
+
+useradd -m -s /bin/bash -N  $username
+
+echo "$username:$userpass" | chpasswd
+
+echo "The user and group information:"
+id $username
+
+groupadd -g 200 $groupname
+
+usermod -aG $groupname $username
+
+echo "The user and group information:"
+id $username
+
+usermod -u 1600 $username
+usermod -g $groupname $username
+
+echo "The user and group information:"
+id $username
+
