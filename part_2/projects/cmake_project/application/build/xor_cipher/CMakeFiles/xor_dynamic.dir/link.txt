@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libxor_dynamic.so -o ../libs/libxor_dynamic.so CMakeFiles/xor_dynamic.dir/src/xor_encrypt.c.o CMakeFiles/xor_dynamic.dir/src/xor_decrypt.c.o 

@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/output.dir/app.c.o -o output  -Wl,-rpath,/home/yahia/Desktop/adminstration_project/part_2/projects/cmake_project/application/build/libs libs/libcaesar_static.a libs/libxor_dynamic.so 
